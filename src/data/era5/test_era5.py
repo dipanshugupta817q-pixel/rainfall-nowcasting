@@ -1,0 +1,51 @@
+import cdsapi
+
+client = cdsapi.Client()
+
+client.retrieve(
+    "reanalysis-era5-single-levels",
+    {
+        "product_type": "reanalysis",
+        "variable": [
+            "2m_temperature",
+            "2m_dewpoint_temperature",
+            "10m_u_component_of_wind",
+            "10m_v_component_of_wind",
+            "surface_pressure",
+            "mean_sea_level_pressure",
+            "total_cloud_cover",
+        ],
+        "year": "2021",
+        "month": "06",
+        "day": "01",
+        "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00",
+        ],
+        "area": [30.0, 76.0, 28.0, 79.0],
+        "format": "netcdf",
+    },
+    "data/processed/era5/test_20210601.nc",
+)

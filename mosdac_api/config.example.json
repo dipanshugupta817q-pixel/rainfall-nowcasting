@@ -1,0 +1,21 @@
+{
+  "user_credentials": {
+    "username": "YOUR_MOSDAC_USERNAME",
+    "password": "YOUR_MOSDAC_PASSWORD"
+  },
+  "search_parameters": {
+    "datasetId": "3RIMG_L2B_IMC",
+    "startTime": "2017-06-01",
+    "endTime": "2017-06-01",
+    "count": "",
+    "boundingBox": "76.0,28.0,79.0,30.0",
+    "gId": ""
+  },
+  "download_settings": {
+    "download_path": "YOUR_LOCAL_DATA_PATH",
+    "organize_by_date": true,
+    "skip_user_input": false,
+    "generate_error_logs": true,
+    "error_logs_dir": "YOUR_LOCAL_LOG_PATH"
+  }
+}

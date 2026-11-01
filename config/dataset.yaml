@@ -1,0 +1,67 @@
+project:
+  name: SIH26071_Rainfall_Nowcasting
+  dataset_version: v1
+
+data_source:
+  product: IMERG Final Run
+  version: V07B
+  temporal_resolution_minutes: 30
+  spatial_resolution_degrees: 0.1
+
+region:
+  name: Meerut_NCR
+  lat_min: 28.0
+  lat_max: 30.0
+  lon_min: 76.0
+  lon_max: 79.0
+
+sequence:
+  input_frames: 12
+  target_frames: 12
+  interval_minutes: 30
+
+  input_duration_hours: 6
+  forecast_duration_hours: 6
+
+split:
+  train:
+    years: [2022, 2023]
+    months: [6, 7, 8, 9]
+
+  validation:
+    years: [2024]
+    months: [6, 7, 8, 9]
+
+  test:
+    years: [2025]
+    months: [6, 7, 8, 9]
+
+  development:
+    date: "2024-08-15"
+    purpose: "pipeline_debugging_only"
+
+leakage_control:
+  temporal_split: true
+  random_frame_split: false
+  random_window_split: false
+
+  no_cross_split_windows: true
+  validation_unseen_during_training: true
+  test_unseen_until_final_evaluation: true
+
+quality_control:
+  max_missing_fraction: 0.05
+  require_consecutive_frames: true
+  require_30min_spacing: true
+  require_same_spatial_grid: true
+
+output:
+  processed_dir: data/processed
+  train_dir: data/processed/train
+  validation_dir: data/processed/validation
+  test_dir: data/processed/test
+
+  format: npz
+
+reproducibility:
+  random_seed: 42

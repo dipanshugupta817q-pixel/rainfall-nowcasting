@@ -1,0 +1,8 @@
+numpy
+torch
+tqdm
+cdsapi
+earthaccess
+h5py
+requests
+xarray
